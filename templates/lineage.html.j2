@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ lineage_page.title }} — {{ footer.artist_name }} Sitar</title>
+  <meta name="description" content="{{ lineage_page.meta_description }}" />
+  <link rel="canonical" href="{{ site.domain }}/lineage.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{{ lineage_page.title }} — {{ footer.artist_name }} Sitar" />
+  <meta property="og:description" content="{{ lineage_page.meta_description }}" />
+  <meta property="og:image" content="{{ images.social_preview }}" />
+  <meta property="og:url" content="{{ site.domain }}/lineage.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="{{ images.favicon }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+{% set nav_prefix = "/" %}
+{% include "_nav.html.j2" %}
+
+  <main>
+    <article class="lineage-page">
+
+      <div class="container lineage-page-inner">
+        <header class="lineage-page-header">
+          <p class="eyebrow">{{ footer.artist_name }}</p>
+          <h1>{{ lineage_page.title }}</h1>
+        </header>
+
+        <section class="lineage-page-section lineage-page-intro">
+{% for p in lineage_page.intro %}
+          <p>{{ p }}</p>
+{% endfor %}
+        </section>
+      </div>
+
+      <div class="container lineage-page-wide">
+        <section class="lineage-page-section" aria-labelledby="streams-heading">
+          <h2 id="streams-heading">{{ lineage_page.streams_heading }}</h2>
+
+          <p class="visually-hidden">
+            Three musical lineages converge in Saugata Chatterjee: a Bengal
+            family lineage running from the Bengal musical world through the
+            Gouripur tradition, Brajendra Kishore Roy Chowdhury, Birendra
+            Kishore Roy Chowdhury, Jitendra Mohan Sen and his grandmother;
+            the Etawah or Imdadkhani tradition, from Imdad Khan through his
+            sons Enayat Khan and Wahid Khan, the latter continuing through
+            Aziz Khan to Shahid Parvez Khan; and the Maihar tradition, from
+            Wazir Khan to Allauddin Khan, whose students Nikhil Banerjee and
+            Ali Akbar Khan both taught Partha Chatterjee.
+          </p>
+
+          <div class="streams-diagram" aria-hidden="true">
+            <div class="streams">
+{% for stream in lineage_page.streams %}
+              <div class="stream">
+                <h3 class="stream-label">{{ stream.label }}</h3>
+
+{% if stream.chain is defined %}
+                <ol class="chain-vertical chain-vertical--compact">
+{% for name in stream.chain %}
+                  <li>{{ name }}</li>
+{% endfor %}
+                </ol>
+{% elif stream.root is defined %}
+                <div class="tree-node">{{ stream.root }}</div>
+                <div class="tree-line"></div>
+                <div class="tree-connector split">
+                  <span class="bar"></span>
+                  <span class="stem stem--center"></span>
+                  <span class="stem stem--left"></span>
+                  <span class="stem stem--right"></span>
+                </div>
+                <div class="tree-row">
+{% for b in stream.branches %}
+                  <div class="tree-col">
+                    <div class="tree-node{% if not b.chain %} tree-node--muted{% endif %}">{{ b.node }}</div>
+{% for sub in b.chain %}
+                    <div class="tree-line"></div>
+                    <div class="tree-node{% if loop.last %} tree-node--accent{% endif %}">{{ sub }}</div>
+{% endfor %}
+                  </div>
+{% endfor %}
+                </div>
+{% elif stream.chain_before_split is defined %}
+                <ol class="chain-vertical chain-vertical--compact">
+{% for name in stream.chain_before_split %}
+                  <li>{{ name }}</li>
+{% endfor %}
+                </ol>
+                <div class="tree-line"></div>
+                <div class="tree-connector split">
+                  <span class="bar"></span>
+                  <span class="stem stem--center"></span>
+                  <span class="stem stem--left"></span>
+                  <span class="stem stem--right"></span>
+                </div>
+                <div class="tree-row">
+{% for b in stream.branches %}
+                  <div class="tree-col"><div class="tree-node">{{ b.node }}</div></div>
+{% endfor %}
+                </div>
+                <div class="tree-connector merge">
+                  <span class="bar"></span>
+                  <span class="stem stem--center"></span>
+                  <span class="stem stem--left"></span>
+                  <span class="stem stem--right"></span>
+                </div>
+                <div class="tree-node tree-node--accent">{{ stream.convergence }}</div>
+{% endif %}
+              </div>
+{% endfor %}
+            </div>
+
+            <div class="streams-convergence-bar">
+              <span class="bar"></span>
+              <span class="stem stem--col1"></span>
+              <span class="stem stem--col2"></span>
+              <span class="stem stem--col3"></span>
+            </div>
+            <div class="tree-line"></div>
+            <div class="tree-node tree-node--current">{{ lineage_page.final_node }}</div>
+          </div>
+        </section>
+      </div>
+
+      <div class="container lineage-page-inner">
+{% for section in lineage_page.sections %}
+        <section class="lineage-page-section">
+          <h2>{{ section.heading }}</h2>
+{% for p in section.paragraphs %}
+          <p>{{ p }}</p>
+{% endfor %}
+{% if section.archival_placeholder %}
+          <div class="archival-placeholder">
+            <span>{{ section.archival_placeholder }}</span>
+          </div>
+{% endif %}
+        </section>
+{% endfor %}
+
+        <section class="lineage-page-section lineage-page-closing">
+          <h2>{{ lineage_page.closing_heading }}</h2>
+{% for p in lineage_page.closing %}
+          <p>{{ p }}</p>
+{% endfor %}
+        </section>
+      </div>
+
+    </article>
+  </main>
+
+{% include "_footer.html.j2" %}
+
+</body>
+</html>

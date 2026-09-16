@@ -1,0 +1,162 @@
+# Single source of truth for the SC Sitar site.
+# Edit this file, then run: python3 scripts/build.py
+# That regenerates index.html — never hand-edit index.html directly,
+# your changes will be overwritten on the next build.
+
+site:
+  title: "Saugata Chatterjee — Sitar | Explorations in Raga"
+  description: "Saugata Chatterjee is a sitarist rooted in North Indian classical music, exploring raga as a living tradition. Watch performances on YouTube."
+  domain: "https://www.saugatachatterjeesitar.com"
+
+hero:
+  name: "Saugata Chatterjee"
+  subtitle: "Sitar | Explorations in Raga"
+  tagline: "Indian classical music as a living practice: rooted in raga, open to discovery."
+
+images:
+  hero_avif: /assets/images/hero.avif
+  hero_webp: /assets/images/hero.webp
+  hero_alt: "A sitar resting beside patterned textiles and a small flower arrangement, set against a dark, textured wall"
+  hero_width: 1672
+  hero_height: 941
+  portrait: /assets/images/portrait.webp
+  portrait_alt: "Saugata Chatterjee performing sitar in low light, in profile"
+  portrait_width: 723
+  portrait_height: 480
+  social_preview: /assets/images/social-preview.webp
+  favicon: /favicon.svg
+
+# Single source of truth for social links — referenced everywhere a
+# YouTube/Instagram/etc. link appears (nav, hero, recordings, footer).
+social:
+  youtube_channel: "https://www.youtube.com/@SaugataChatterjeeSitar"
+  instagram_channel: "https://www.instagram.com/sitarjones01/"
+  facebook_channel: "https://www.facebook.com/sitarjones"
+  spotify_channel: "https://open.spotify.com/"
+
+# Selected Recordings — each links straight to its YouTube video.
+# Keep this to 3 for the curated-showcase feel (see brand spec).
+recordings:
+  - title: "Raga Yaman"
+    meta: "Live Recording · 2025"
+    youtube_url: "https://www.youtube.com/"
+    thumbnail: /assets/images/recordings/recording-01.webp
+    alt: "Raga Yaman performance thumbnail"
+  - title: "Raga Bageshree"
+    meta: "Studio Session · 2024"
+    youtube_url: "https://www.youtube.com/"
+    thumbnail: /assets/images/recordings/recording-02.webp
+    alt: "Raga Bageshree performance thumbnail"
+  - title: "Raga Malkauns"
+    meta: "Live Recording · 2024"
+    youtube_url: "https://www.youtube.com/"
+    thumbnail: /assets/images/recordings/recording-03.webp
+    alt: "Raga Malkauns performance thumbnail"
+
+lineage:
+  path: ["Pandit Nikhil Banerjee", "Pandit Partha Chatterjee", "Dr. Saugata Chatterjee"]
+  description: "Trained within a disciplined guru–shishya tradition, this practice carries forward a lineage of raga interpretation — honoring inherited form while remaining open to individual voice."
+
+about:
+  bio: >-
+    Saugata Chatterjee is a sitarist trained in the North Indian classical
+    tradition, with a practice rooted in raga and years of disciplined study
+    under senior gurus. His playing draws on classical structure while
+    leaving room for improvisation and personal expression within each
+    raga's framework. He has performed and recorded extensively, presenting
+    both traditional repertoire and exploratory interpretations for
+    listeners encountering the sitar for the first time as well as
+    connoisseurs of the form. His recordings are shared primarily through
+    video, offering an intimate, unedited view of the music as it unfolds
+    in real time.
+
+footer:
+  artist_name: "Saugata Chatterjee"
+  copyright_year: 2026
+
+# Full standalone /lineage.html page — independent from the homepage's
+# compact lineage teaser above (that one just links here).
+lineage_page:
+  title: "Musical Lineage"
+  meta_description: "The three musical lineages behind Saugata Chatterjee's sitar training: the musical world of Bengal and Gouripur, the Etawah or Imdadkhani tradition, and the Maihar tradition."
+
+  intro:
+    - "The modern sitar did not emerge from a single, unbroken school of playing. Its history was shaped by hereditary musicians, court traditions, individual masters, and generations of exchange between vocal and instrumental music."
+    - "Three of those streams form the musical background of Saugata Chatterjee: the musical world of Bengal and Gouripur, the Etawah or Imdadkhani tradition, and the Maihar tradition."
+    - "Their histories developed differently, but each contributed to the language of the modern sitar."
+
+  streams_heading: "Three Musical Lineages"
+  final_node: "Saugata Chatterjee"
+
+  # Family-preserved / historically documented lineage as supplied directly —
+  # do not reorder or alter based on outside web sources without checking
+  # with Saugata first.
+  streams:
+    - label: "Bengal / Family"
+      chain:
+        - "Bengal musical world"
+        - "Gouripur tradition"
+        - "Brajendra Kishore Roy Chowdhury"
+        - "Birendra Kishore Roy Chowdhury"
+        - "Jitendra Mohan Sen"
+        - "Saugata's Grandmother"
+
+    - label: "Etawah / Imdadkhani"
+      root: "Imdad Khan"
+      branches:
+        - node: "Enayat Khan"
+          chain: []
+        - node: "Wahid Khan"
+          chain:
+            - "Aziz Khan"
+            - "Shahid Parvez Khan"
+
+    - label: "Maihar"
+      chain_before_split:
+        - "Wazir Khan"
+        - "Allauddin Khan"
+      branches:
+        - node: "Nikhil Banerjee"
+          chain: []
+        - node: "Ali Akbar Khan"
+          chain: []
+      convergence: "Partha Chatterjee"
+
+  sections:
+    - heading: "Bengal and the Gouripur Tradition"
+      paragraphs:
+        - "At the turn of the twentieth century, one of the important centers of classical music in eastern India developed around the Gouripur Raj in Mymensingh."
+        - "Its ruler, Brajendra Kishore Roy Chowdhury, belonged to a generation of aristocratic patrons whose courts provided musicians with the time, resources, and environment necessary for serious musical study. Gouripur became associated with musicians drawn from several traditions rather than with a single gharana."
+        - "Brajendra Kishore's son, Birendra Kishore Roy Chowdhury, inherited this musical environment and became an accomplished instrumentalist and scholar in his own right. His musical education crossed the boundaries that would later be used to describe individual gharanas, placing him within a broad culture of instrumental music that connected Bengal with some of the most important musicians of his generation."
+        - "Birendra Kishore's influence extended well beyond the musical world of Gouripur. Among the musicians who received training from him was Jitendra Mohan Sen, who would become an important teacher in his own right."
+        - "Jitendra Mohan Sen trained a number of disciples, carrying this musical tradition into another generation. Among them was Saugata Chatterjee's grandmother."
+        - "It was from her that Saugata began learning the sitar at the age of five. Those early lessons formed the foundation of his musical education and established the first of the three traditions that would later shape his approach to the instrument."
+
+    - heading: "The Etawah or Imdadkhani Tradition"
+      paragraphs:
+        - "While these musical circles were developing in Bengal, another influential instrumental tradition was taking shape through the family of Ustad Imdad Khan."
+        - "The tradition became known both as the Etawah gharana and, after Imdad Khan, as the Imdadkhani gharana."
+        - "Imdad Khan was a major figure in the development of nineteenth-century sitar and surbahar playing. His approach increasingly incorporated ideas drawn from khayal and other forms of vocal music into instrumental performance. The sitar was no longer treated simply as a plucked instrument articulating discrete notes. Meend, ornamentation, melodic continuity, and vocal-like phrasing became increasingly central to its expressive language."
+        - "The tradition passed through his sons, Ustad Enayat Khan and Ustad Wahid Khan, both important sitar and surbahar musicians."
+        - "From Wahid Khan, one branch continued through his son Ustad Aziz Khan to Ustad Shahid Parvez Khan."
+        - "Across these generations, the gharana developed an especially sophisticated form of gayaki ang — the adaptation of vocal expression to the sitar. Melodic phrases could stretch across frets through long meends; ornamentation could suggest the movement of the voice; and the unfolding of a raga could retain the architecture of instrumental music while drawing heavily upon vocal aesthetics."
+        - "This became one of the most influential conceptions of modern sitar playing, represented in later generations by musicians including Ustad Vilayat Khan and Ustad Shahid Parvez Khan."
+
+    - heading: "The Maihar Tradition"
+      paragraphs:
+        - "A different transformation of North Indian instrumental music developed around Ustad Allauddin Khan."
+        - "Allauddin Khan's own musical education was unusually broad. Among the important influences on his development was the Senia tradition associated with the beenkar Ustad Wazir Khan. Allauddin Khan absorbed material from several sources and eventually established his musical center at Maihar, where he served as court musician and teacher."
+        - "What emerged around him was less a hereditary sitar gharana than a broad school of instrumental training."
+        - "His influence spread through an extraordinary generation of musicians. Among them were his son, the sarod maestro Ustad Ali Akbar Khan, and two of the most influential sitarists of the twentieth century, Pandit Ravi Shankar and Pandit Nikhil Banerjee."
+        - "Nikhil Banerjee brought together several strands of this history. His early training had already included the musical environment of Bengal and the guidance of Birendra Kishore Roy Chowdhury before his advanced study with Allauddin Khan."
+        - "Banerjee's mature style became known for the seriousness and patience of its raga development. Extended alap, carefully constructed melodic progression, control of tone, and a contemplative approach to improvisation became central features of his music."
+        - "Among the musicians who subsequently studied closely with Nikhil Banerjee was Pandit Partha Chatterjee."
+        - "After Banerjee's death in 1986, Partha Chatterjee continued his training under Ustad Ali Akbar Khan. His musical education therefore carried two closely related streams descending from Allauddin Khan: through Nikhil Banerjee and through Ali Akbar Khan."
+
+  closing_heading: "Three Traditions, One Musical Education"
+  closing:
+    - "These three traditions entered Saugata Chatterjee's musical life at different stages."
+    - "His musical education began at the age of five with his grandmother, carrying forward the Bengali lineage that passed through Birendra Kishore Roy Chowdhury and Jitendra Mohan Sen."
+    - "Later, Saugata studied with Ustad Shahid Parvez Khan, bringing him into the Etawah tradition and its highly developed approach to gayaki ang, meend, ornamentation, and melodic expression."
+    - "He currently continues his study under Pandit Partha Chatterjee, whose training under Pandit Nikhil Banerjee and Ustad Ali Akbar Khan carries forward the instrumental tradition associated with Maihar."
+    - "Saugata's musical education has therefore developed across three traditions at different stages of his life. Together, they form the foundation of his approach to raga: rooted in tradition while remaining open to exploration, improvisation, and personal expression."

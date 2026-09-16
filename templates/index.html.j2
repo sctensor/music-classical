@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}" />
+  <link rel="canonical" href="{{ site.domain }}/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{{ site.title }}" />
+  <meta property="og:description" content="{{ hero.tagline }}" />
+  <meta property="og:image" content="{{ images.social_preview }}" />
+  <meta property="og:url" content="{{ site.domain }}/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="{{ images.favicon }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+{% set nav_prefix = "" %}
+{% include "_nav.html.j2" %}
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <picture class="hero-media">
+        <source srcset="{{ images.hero_avif }}" type="image/avif" />
+        <img
+          src="{{ images.hero_webp }}"
+          alt="{{ images.hero_alt }}"
+          width="{{ images.hero_width }}"
+          height="{{ images.hero_height }}"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">{{ hero.name }}</h1>
+        <p class="hero-subtitle">{{ hero.subtitle }}</p>
+        <p class="hero-copy">
+          {{ hero.tagline }}
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="{{ social.youtube_channel }}" target="_blank" rel="noopener">Watch on YouTube</a>
+          <a class="btn btn-ghost" href="{{ social.instagram_channel }}" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELECTED RECORDINGS -->
+    <section class="recordings" id="listen">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Selected Recordings</h2>
+          <p class="section-subtitle">A small, curated selection. The full archive lives on YouTube.</p>
+        </div>
+
+        <div class="recordings-grid">
+{% for rec in recordings %}
+          <article class="recording-card">
+            <a href="{{ rec.youtube_url }}" target="_blank" rel="noopener" class="recording-link">
+              <img
+                src="{{ rec.thumbnail }}"
+                alt="{{ rec.alt }}"
+                width="640"
+                height="400"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="recording-info">
+                <h3>{{ rec.title }}</h3>
+                <p class="recording-meta">{{ rec.meta }}</p>
+              </div>
+            </a>
+          </article>
+{% endfor %}
+        </div>
+
+        <div class="recordings-more">
+          <a class="btn btn-outline" href="{{ social.youtube_channel }}" target="_blank" rel="noopener">More on YouTube</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MUSICAL LINEAGE -->
+    <section class="lineage" id="lineage">
+      <div class="container lineage-inner">
+        <div class="section-heading">
+          <h2>Musical Lineage</h2>
+        </div>
+        <ol class="lineage-path">
+{% for name in lineage.path %}
+          <li><span class="lineage-name">{{ name }}</span></li>
+{% endfor %}
+        </ol>
+        <p class="lineage-copy">
+          {{ lineage.description }}
+        </p>
+        <a class="lineage-link" href="/lineage.html">Read the full lineage &rarr;</a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-media">
+          <img
+            src="{{ images.portrait }}"
+            alt="{{ images.portrait_alt }}"
+            width="{{ images.portrait_width }}"
+            height="{{ images.portrait_height }}"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="about-copy">
+          <h2>About</h2>
+          <p>
+            {{ about.bio }}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+      <div class="container final-cta-inner">
+        <h2>Continue the Exploration</h2>
+        <div class="final-cta-actions">
+          <a class="btn btn-primary" href="{{ social.youtube_channel }}" target="_blank" rel="noopener">Watch on YouTube</a>
+          <a class="btn btn-ghost" href="{{ social.instagram_channel }}" target="_blank" rel="noopener">Instagram</a>
+        </div>
+        <ul class="final-cta-links">
+          <li><a href="{{ social.facebook_channel }}" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="{{ social.spotify_channel }}" target="_blank" rel="noopener">Spotify</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+{% include "_footer.html.j2" %}
+
+</body>
+</html>

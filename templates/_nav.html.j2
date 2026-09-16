@@ -1,0 +1,28 @@
+  <header class="site-header">
+    <nav class="navbar" aria-label="Primary">
+      <a href="/" class="brand-mark">
+        <span class="brand-initials">SC</span>
+        <span class="brand-fullname">
+          <span class="brand-name">{{ footer.artist_name }}</span>
+          <span class="brand-role">Sitar</span>
+        </span>
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="visually-hidden">Menu</span>
+      </label>
+
+      <div class="nav-panel">
+        <ul class="nav-links">
+          <li><a href="{{ nav_prefix }}#about">About</a></li>
+          <li><a href="/lineage.html">Lineage</a></li>
+          <li><a href="{{ nav_prefix }}#listen">Listen</a></li>
+        </ul>
+        <a class="btn btn-outline nav-cta" href="{{ social.youtube_channel }}" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+    </nav>
+  </header>
